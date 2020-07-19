@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+	PUBLIC "-//mybatis.org/DTD mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.cqswxy.ssm.mapper.CustomerMapper">
+
+	<!-- DELETE FROM t_customer WHERE cust_id = ?; INSERT INTO t_customer VALUES 
+		(DEFAULT,?,DEFAULT,?,?,?,DEFAULT,?,NULL); UPDATE t_customer SET cust_name 
+		= ?, cust_source = ?,cust_industry = ?,cust_phone = ?,cust_mobile= ? ,cust_address 
+		= ? WHERE cust_id = ?; SELECT * FROM t_customer; -->
+	<resultMap type="customer" id="customerResultMap">
+		<id column="cust_id" property="custId"/>
+		<association select="cn.cqswxy.ssm.mapper.DictMapper.selectResourceByItemCode" property="source" column="cust_source" ></association>
+	</resultMap>
+	
+	<select id="selectAll" resultMap="customerResultMap">
+		SELECT * FROM t_customer
+		<where>
+			<if test="custName !=null and custName != ''">
+				and cust_name like CONCAT('%',#{custName},'%')
+			</if>
+			<if test="custSource!=null and custSource != ''">
+				and cust_source = #{custSource}
+			</if>
+			<if test="custIndustry!=null and custIndustry != ''">
+				and cust_industry = #{custIndustry}
+			</if>
+		</where>
+	</select>
+	
+	<select id="selectById" resultType="customer">
+		SELECT * FROM t_customer where cust_id = #{custId}
+	</select>
+	
+	<delete id="deleteOne">
+		DELETE FROM t_customer WHERE cust_id in
+		<foreach collection="array" item="id" open="(" separator="," close=")">
+			#{id}
+		</foreach>
+	</delete>
+	
+	<insert id="insertOne">
+		INSERT INTO t_customer VALUES
+		(DEFAULT,#{custName},DEFAULT,#{custCreateId},#{custSource},#{custIndustry},DEFAULT,#{custMobile},#{custAddress},NOW());
+	</insert>
+		
+
+	<update id="updateOne">
+		UPDATE t_customer SET cust_name = #{custName},
+		cust_source = #{custSource},cust_industry = #{custIndustry},cust_phone = #{custPhone},cust_mobile= #{custMobile}
+		,cust_address = #{custAddress} WHERE cust_id = #{custId}
+	</update>
+</mapper>

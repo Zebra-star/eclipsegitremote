@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+	PUBLIC "-//mybatis.org/DTD mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.cqswxy.ssm.mapper.DictMapper">
+
+	<select id="selectByTypeName" resultType="dict">
+		SELECT * FROM t_dict WHERE dict_type_code = #{code}
+	</select>
+	
+	<select id="selectResourceByItemCode" resultType="dict">
+		SELECT * FROM t_dict WHERE dict_type_code = '002' AND dict_item_code = #{dictItemCode}
+	</select>
+	
+<!-- 	<select id="selectResourceByItemCode2" resultType="dict">
+		SELECT * FROM t_dict WHERE dict_type_code = '001' AND dict_item_code = #{dictItemCode}
+	</select> -->
+	
+	
+</mapper>
