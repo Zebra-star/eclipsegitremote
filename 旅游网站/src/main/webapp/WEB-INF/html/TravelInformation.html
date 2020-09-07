@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title></title>
+<script type="text/javascript" src="DES-INF/js/jquery.js"></script>
+<link rel="stylesheet" href="DES-INF/css/bootstrap.css" />
+<script type="text/javascript" src="DES-INF/js/bootstrap.min.js"></script>
+<style>
+.a {
+	text-decoration: none;
+	color: #FFFFFF;
+}
+
+.col-md-1 {
+	height: 70px;
+	line-height: 70px;
+	text-align: center;
+	color: white;
+	font-size: 20px;
+}
+
+.col-md-1:hover {
+	background-color: black;
+}
+
+.second {
+	height: 300px;
+	background-image: url(DES-INF/img/headline.png);
+	background-size: 100%;
+	background-repeat: no-repeat;
+}
+
+.first {
+	background-color: #333333;
+}
+
+.label-first {
+	margin: 70px 140px;
+	font-size: 26px;
+	color: white;
+	text-align: center;
+}
+
+.label-second {
+	color: white;
+	margin-left: 150px;
+}
+
+.col-md-12, h1 {
+	display: block;
+	width: 100%;
+	text-align: center;
+	font-weight: bold;
+}
+
+.modal-footer {
+	background-color: #414141;
+	color: white;
+	text-align: center;
+}
+
+.footers {
+	margin-top: 0px;
+	margin-bottom: 0px;
+	height: 110px;
+	background-color: black;
+	line-height: 100px;
+	color: white;
+	text-align: center;
+	font-size: 20px;
+}
+
+.context {
+	height: 800px;
+}
+
+.middle {
+	width: 80%;
+	margin: 0 auto;
+}
+
+.green:hover {
+	background-color: greenyellow;
+	border: 1px greenyellow solid;
+}
+
+td {
+	padding: 14px;
+	text-align: center;
+}
+
+.orange {
+	background-color: orangered;
+	border: orangered solid;
+}
+
+.orange2 {
+	color: orangered;
+}
+
+#selectWay {
+	width: 60px;
+	height: 30px;
+	text-align: center;
+}
+</style>
+</head>
+
+<body>
+	<div class="container-fluid">
+		<div class="row first">
+			<div class="col-md-5">
+				<img src="DES-INF/img/logo.png" style="padding-left: 100px;" />
+			</div>
+			<div class="col-md-1">
+				<a href="mainPage.do">首页</a>
+			</div>
+			<div class="col-md-1">
+				<a href="#">陆游资讯</a>
+			</div>
+			<div class="col-md-1">
+				<a href="AirTicketBooking.do">机票订购</a>
+			</div>
+			<div class="col-md-1">
+				<a href="SceneryAppreciation.do">风景欣赏</a>
+			</div>
+			<div class="col-md-1">
+				<a href="#">公司简介</a>
+			</div>
+			<div class="col-md-1">
+				<a href="login.do" id="login">登录</a>
+			</div>
+			<div class="col-md-1">
+				<a href="#" id="register">注册</a>
+			</div>
+		</div>
+		<div class="row second">
+			<form class="form-inline">
+				<div class="form-group">
+					<label class="label-first">旅游资讯</label><br /> <label
+						class="label-second">介绍各种旅游资讯介绍各种旅游资讯</label>
+				</div>
+			</form>
+		</div>
+
+		<div class="row middle">
+			<div class="context">
+				<div class="col-md-9">
+					
+					<div>
+						
+						  <!-- Nav tabs -->
+						  <ul class="nav nav-tabs" role="tablist">
+						    <li role="presentation" class="active"><a href="#home" style="color:black; aria-controls="home" role="tab" data-toggle="tab">限时特价</a></li>
+						    <li role="presentation" "><a href="#profile" style="color:black; aria-controls="profile" role="tab" data-toggle="tab">热门推荐</a></li>
+						  </ul>
+						
+						  <!-- Tab panes -->
+						  <div class="tab-content">
+						    <div role="tabpanel" class="tab-pane active" id="home">
+						    	
+						    	<!--........................................-->
+						    	<div class="row"  style="margin-top: 10px;border: 0.6px solid lightgray;">
+								  <div class="col-md-6">
+								      <img src="DES-INF/img/tour2.jpg" style="margin-left: -14px;">
+								  </div>
+								  <div class="col-md-6">
+								  	<div class="row">
+								  		<div class="col-md-7">
+									  		<div class="caption">
+										        <h3 id="specialOne" style="padding-top: 20px;"> 曼谷-芭提六日游</h3>
+										        <p>包团特惠，超丰富景点，无自费，更赠送600元/成人自费卷</p>
+										        <p>
+										        	<span style="border: #008000 1px solid;width: 30px;"><a style="color:green;">交通</a></span>
+										        	<span>:春秋航空杭州出发无需转机</span>
+										        </p>
+										        <p>
+										        	<span style="border: #008000  1px solid;width: 30px;"><a style="color:green;">团期</a></span>
+										        	<span>:11/01,11/03,11/08</span>
+										        </p>
+									     	</div>
+								  		</div>
+								  		<div class="col-md-5">
+								  			<img style="padding-left: 101px;" src="DES-INF/img/disc.png" />
+								  			<p >
+								  				<h2 style="display: inline;color: orange;">￥2864</h2>
+								  				<span style="text-decoration:line-through;">3000</span>
+								  			</p>
+								  			<button id="buyit" style="width: 100px;height: 40px;background-color: orange;border: none;">立即购买</button>
+								  		</div>
+								  	</div>
+								  </div>
+								  <p style="margin-left: 10px;display: block;">&nbsp;&nbsp;本团游由梦腾网赞助提供，截止于<span style="color: green;"> 2015-10-10</span></p>
+								</div>
+								<!-- --------------------------------------------------------- -->
+								<!--..................马尔代夫......................-->
+						    	<div class="row"  style="margin-top: 10px;border: 0.6px solid lightgray;">
+								  <div class="col-md-6">
+								      <img src="DES-INF/img/tour1.jpg" style="margin-left: -14px;">
+								  </div>
+								  <div class="col-md-6">
+								  	<div class="row">
+								  		<div class="col-md-7">
+									  		<div class="caption">
+										        <h3 id="specialTwo" style="padding-top: 20px;"> 马尔代夫双人六日游</h3>
+										        <p>包团特惠，超丰富景点，无自费，更赠送600元/成人自费卷</p>
+										        <p>
+										        	<span style="border: #008000 1px solid;width: 30px;"><a style="color:green;">交通</a></span>
+										        	<span>:春秋航空杭州出发无需转机</span>
+										        </p>
+										        <p>
+										        	<span style="border: #008000  1px solid;width: 30px;"><a style="color:green;">团期</a></span>
+										        	<span>:11/01,11/03,11/08</span>
+										        </p>
+									     	</div>
+								  		</div>
+								  		<div class="col-md-5">
+								  			<img style="padding-left: 101px;" src="DES-INF/img/disc.png" />
+								  			<p >
+								  				<h2 style="display: inline;color: orange;">￥2864</h2>
+								  				<span style="text-decoration:line-through;">3000</span>
+								  			</p>
+								  			<button id="buyit2" style="width: 100px;height: 40px;background-color: orange;border: none;">立即购买</button>
+								  		</div>
+								  	</div>
+								  </div>
+								  <p style="margin-left: 10px;display: block;">&nbsp;&nbsp;本团游由梦腾网赞助提供，截止于<span style="color: green;"> 2015-10-10</span></p>
+								</div>
+								<!-- --------------------------------------------------------- -->
+									
+								<!--...................巴黎岛6日游.....................-->
+						    	<div class="row"  style="margin-top: 10px;border: 0.6px solid lightgray;">
+								  <div class="col-md-6">
+								      <img src="DES-INF/img/tour4.jpg" style="margin-left: -14px;">
+								  </div>
+								  <div class="col-md-6">
+								  	<div class="row">
+								  		<div class="col-md-7">
+									  		<div class="caption">
+										        <h3 style="padding-top: 20px;"> 巴黎岛6日游</h3>
+										        <p>包团特惠，超丰富景点，无自费，更赠送600元/成人自费卷</p>
+										        <p>
+										        	<span style="border: #008000 1px solid;width: 30px;"><a style="color:green;">交通</a></span>
+										        	<span>:春秋航空杭州出发无需转机</span>
+										        </p>
+										        <p>
+										        	<span style="border: #008000  1px solid;width: 30px;"><a style="color:green;">团期</a></span>
+										        	<span>:11/01,11/03,11/08</span>
+										        </p>
+									     	</div>
+								  		</div>
+								  		<div class="col-md-5">
+								  			<img style="padding-left: 101px;" src="DES-INF/img/disc.png" />
+								  			<p >
+								  				<h2 style="display: inline;color: orange;">￥2864</h2>
+								  				<span style="text-decoration:line-through;">3000</span>
+								  			</p>
+								  			<button style="width: 100px;height: 40px;background-color: orange;border: none;">立即购买</button>
+								  		</div>
+								  	</div>
+								  </div>
+								  <p style="margin-left: 10px;display: block;">&nbsp;&nbsp;本团游由梦腾网赞助提供，截止于<span style="color: green;"> 2015-10-10</span></p>
+								</div>
+								<!-- --------------------------------------------------------- -->
+								
+								<!--...................富山大版东京8日游.....................-->
+						    	<div class="row"  style="margin-top: 10px;border: 0.6px solid lightgray;">
+								  <div class="col-md-6">
+								      <img src="DES-INF/img/tour5.jpg" style="margin-left: -14px;">
+								  </div>
+								  <div class="col-md-6">
+								  	<div class="row">
+								  		<div class="col-md-7">
+									  		<div class="caption">
+										        <h3 style="padding-top: 20px;">富山大版东京8日游</h3>
+										        <p>包团特惠，超丰富景点，无自费，更赠送600元/成人自费卷</p>
+										        <p>
+										        	<span style="border: #008000 1px solid;width: 30px;"><a style="color:green;">交通</a></span>
+										        	<span>:春秋航空杭州出发无需转机</span>
+										        </p>
+										        <p>
+										        	<span style="border: #008000  1px solid;width: 30px;"><a style="color:green;">团期</a></span>
+										        	<span>:11/01,11/03,11/08</span>
+										        </p>
+									     	</div>
+								  		</div>
+								  		<div class="col-md-5">
+								  			<img style="padding-left: 101px;" src="DES-INF/img/disc.png" />
+								  			<p >
+								  				<h2 style="display: inline;color: orange;">￥2864</h2>
+								  				<span style="text-decoration:line-through;">3000</span>
+								  			</p>
+								  			<button style="width: 100px;height: 40px;background-color: orange;border: none;">立即购买</button>
+								  		</div>
+								  	</div>
+								  </div>
+								  <p style="margin-left: 10px;display: block;">&nbsp;&nbsp;本团游由梦腾网赞助提供，截止于<span style="color: green;"> 2015-10-10</span></p>
+								</div>
+								<!-- --------------------------------------------------------- -->
+								<!--...................花样土耳其10日.....................-->
+						    	<div class="row"  style="margin-top: 10px;border: 0.6px solid lightgray;">
+								  <div class="col-md-6">
+								      <img src="DES-INF/img/tour6.jpg" style="margin-left: -14px;">
+								  </div>
+								  <div class="col-md-6">
+								  	<div class="row">
+								  		<div class="col-md-7">
+									  		<div class="caption">
+										        <h3 style="padding-top: 20px;">花样土耳其10日</h3>
+										        <p>包团特惠，超丰富景点，无自费，更赠送600元/成人自费卷</p>
+										        <p>
+										        	<span style="border: #008000 1px solid;width: 30px;"><a style="color:green;">交通</a></span>
+										        	<span>:春秋航空杭州出发无需转机</span>
+										        </p>
+										        <p>
+										        	<span style="border: #008000  1px solid;width: 30px;"><a style="color:green;">团期</a></span>
+										        	<span>:11/01,11/03,11/08</span>
+										        </p>
+									     	</div>
+								  		</div>
+								  		<div class="col-md-5">
+								  			<img style="padding-left: 101px;" src="DES-INF/img/disc.png" />
+								  			<p >
+								  				<h2 style="display: inline;color: orange;">￥2864</h2>
+								  				<span style="text-decoration:line-through;">3000</span>
+								  			</p>
+								  			<button style="width: 100px;height: 40px;background-color: orange;border: none;">立即购买</button>
+								  		</div>
+								  	</div>
+								  </div>
+								  <p style="margin-left: 10px;display: block;">&nbsp;&nbsp;本团游由梦腾网赞助提供，截止于<span style="color: green;"> 2015-10-10</span></p>
+								</div>
+								<!-- --------------------------------------------------------- -->
+						    </div>
+						    
+						    <div role="tabpanel" class="tab-pane" id="profile">没有热门</div>
+						  </div>
+						
+						</div>
+				</div>
+
+				<div class="col-md-3">
+					<div>
+						<table border="1">
+							<tr>
+								<td colspan="3">景点推荐</td>
+							</tr>
+							<tr>
+								<td>曼谷(12)</td>
+								<td>东京(5)</td>
+								<td>西双版纳(8)</td>
+							</tr>
+							<tr>
+								<td>曼谷(12)</td>
+								<td>东京(5)</td>
+								<td>西双版纳(8)</td>
+							</tr>
+							<tr>
+								<td>曼谷(12)</td>
+								<td>东京(5)</td>
+								<td>西双版纳(8)</td>
+							</tr>
+							<tr>
+								<td>曼谷(12)</td>
+								<td>东京(5)</td>
+								<td>西双版纳(8)</td>
+							</tr>
+							<tr>
+								<td>曼谷(12)</td>
+								<td>东京(5)</td>
+								<td>西双版纳(8)</td>
+							</tr>
+							<tr>
+								<td>曼谷(12)</td>
+								<td>东京(5)</td>
+								<td>西双版纳(8)</td>
+							</tr>
+						</table>
+					</div>
+					<div>
+						<table>
+							<tr>
+								<td colspan="2">热门旅游</td>
+							</tr>
+							<tr>
+								<td><img src="DES-INF/img/hot1.jpg" /></td>
+								<td><img src="DES-INF/img/hot2.jpg" /></td>
+							</tr>
+							<tr>
+								<td>曼谷-芭提雅</td>
+								<td>马尔代夫双鱼6日游</td>
+							</tr>
+							<tr>
+								<td><img src="DES-INF/img/hot3.jpg" /></td>
+								<td><img src="DES-INF/img/hot4.jpg" /></td>
+							</tr>
+							<tr>
+								<td>曼谷-芭提雅</td>
+								<td>马尔代夫双鱼6日游</td>
+							</tr>
+							<tr>
+								<td><img src="DES-INF/img/hot5.jpg" /></td>
+								<td><img src="DES-INF/img/hot6.jpg" /></td>
+							</tr>
+							<tr>
+								<td>曼谷-芭提雅</td>
+								<td>马尔代夫双鱼6日游</td>
+							</tr>
+							<tr>
+								<td><img src="DES-INF/img/hot7.jpg" /></td>
+								<td><img src="DES-INF/img/hot8.jpg" /></td>
+							</tr>
+							<tr>
+								<td>曼谷-芭提雅</td>
+								<td>马尔代夫双鱼6日游</td>
+							</tr>
+						</table>
+					</div>
+					<div>
+						<table>
+							<tr>
+								<td colspan="2">旅游百宝箱</td>
+							</tr>
+							<tr>
+								<td><img src="DES-INF/img/trea1.png" />天气预报</td>
+								<td><img src="DES-INF/img/trea2.png" />火车票查询</td>
+							</tr>
+							<tr>
+								<td><img src="DES-INF/img/trea1.png" />天气预报</td>
+								<td><img src="DES-INF/img/trea2.png" />火车票查询</td>
+							</tr>
+						</table>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div>
+		<div class="modal-footer">
+			<div class="col-md-4">
+				<h3>合作伙伴</h3>
+				<br />
+				<p>途牛旅游网</p>
+				<br />
+				<p>携程旅游</p>
+				<br />
+				<p>中国青年旅行社</p>
+			</div>
+			<div class="col-md-4">
+				<h3>旅游</h3>
+				<br />
+				<p>旅游合同签订方式？</p>
+				<br />
+				<p>儿童价是基于什么时候定制的？</p>
+				<br />
+				<p>旅游的线路品质怎么界定？</p>
+				<br />
+				<p>单房差是什么？</p>
+				<br />
+				<p>旅游保险有哪些种类？</p>
+			</div>
+			<div class="col-md-4">
+				<h3>联系方式</h3>
+				<br />
+				<p>微博：weibo.com/sunny</p>
+				<br />
+				<p>邮件：MP5560@163.com</p>
+				<br />
+				<p>地址：福建省泉州市</p>
+			</div>
+		</div>
+	</div>
+	<div>
+		<div class="footers">
+			<p>Copyright@YCKU 梦腾王|苏icp备XXXXX号|旅行s社经营许可证：XXXX</p>
+		</div>
+	</div>
+	</div>
+</body>
+
+<script type="text/javascript">
+	$.post("userState.do", {}, function(data) {
+		if (data.toString() == "") {
+
+			$("#login").html("登录")
+			$("#register").html("注册")
+		} else {
+
+			$("#login").html(data.toString())
+			$("#register").html("退出")
+		}
+	})
+
+	//购买
+	$("#buyit").click(
+			function() {
+				$.post("userState.do", {}, function(data) {
+					if (data.toString() == "") {
+						alert("你还没有登录，请登录");
+					} else {
+						$.post("SpecialPurchase.do",{
+							uid:data.toString(),
+							line:$("#specialOne").html()
+						},function(data){
+							alert("购买成功");
+							i=1;
+						})
+					} 
+				})
+			})
+	//购买
+	$("#buyit2").click(
+			function() {
+				$.post("userState.do", {}, function(data) {
+					if (data.toString() == "") {
+						alert("你还没有登录，请登录");
+					} else {
+						$.post("SpecialPurchase.do",{
+							uid:data.toString(),
+							line:$("#specialTwo").html()
+						},function(data){
+							alert("购买成功");
+							i=1;
+						})
+					} 
+				})
+			})
+			
+			
+			
+			
+			//退出功能
+		$("#register").click(function(){
+			if($("#register").html() == "退出"){
+				$.post("destorySession.do",{},function(data){
+					alert("退出成功")
+					location.href="SpecialPurchase.do";
+				})
+			}else{
+				location.href="register.do";
+			}
+		})
+			
+</script>
+</html>

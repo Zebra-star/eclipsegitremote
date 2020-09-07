@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript" src="DES-INF/js/jquery.js"></script>
+		<link rel="stylesheet" type="text/css" href="DES-INF/css/bootstrap.css"/>
+		<script type="text/javascript" src="DES-INF/js/bootstrap.js"></script>
+		<style type="text/css">
+			.container{
+				margin-top: 150px;
+				width: 500px;
+			}
+			
+			button{
+				width: 49.5%;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="container">
+			<form >
+			  <div class="form-group">
+			    <label for="name">名称</label>
+			    <input required="required" type="text" class="form-control" id="name" placeholder="name">
+			    <span id="spanName"></span>
+			  </div>
+			  <div class="form-group">
+			    <label for="exampleInputEmail1">邮箱地址</label>
+			    <input required="required" type="email" class="form-control" id="exampleInputEmail1" placeholder="Email">
+			  </div>
+			  <div class="form-group">
+			    <label for="exampleInputPassword1">密码</label>
+			    <input required="required" type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+			 	<span id="password1"></span>
+			  </div>
+			  <div class="form-group">
+			    <label for="exampleInputPassword1">确认密码</label>
+			    <input required="required" type="password" class="form-control" id="exampleInputPassword2" placeholder="Password">
+			 	<span id="password2"></span>
+			  </div>
+				<button id="login" type="button" class="btn btn-default btn-lg">去登录</button>
+	 			<button id="register" type="button" class="btn btn-primary btn-lg">注册</button>
+			</form>
+		</div>
+		
+	</body>
+	<script type="text/javascript">
+	
+		var nameFlag = false;
+		$("#name").blur(function(){
+			  name=$("#name").val();
+			  $.post("ifNameExist.do",{userName:name},function(data){
+				  console.log(data.toString())
+			    if (data.toString()=="ok"){
+			    	 $("#spanName").html("用户已存在×");
+			    	 $("#spanName").css("color","red");
+               }else{
+            	   if(name == ""){
+            		 	 $("#spanName").html("请输入用户名");
+  			    		 $("#spanName").css("color","red");
+            	   }else{
+	                    $("#spanName").html("用户名可用√");
+	                    $("#spanName").css("color","green");
+	                     nameFlag = true;
+            	   }
+               }
+			  });
+			});
+		
+		
+		var mailFlag = false;
+		$("#exampleInputEmail1").blur(function(){
+			if($("#exampleInputEmail1").val() != ""){
+				mailFlag = true;
+			}
+		})
+		
+		var passwordFlag = false;
+		$("#exampleInputPassword2").mouseleave(function(){
+			password1 = $("#exampleInputPassword1").val();
+			password2 = $("#exampleInputPassword2").val();
+			if (password1 != password2 || password1 == "") {
+				$("#password2").html("确认密码和密码不相同，请重新输入");
+		    	 $("#password2").css("color","red");
+			}else{
+				$("#password2").html("密码可以通过");
+		    	$("#password2").css("color","green");
+		    	passwordFlag = true;
+			}
+		})
+		
+		$("#register").click(function(){
+			if(passwordFlag && mailFlag && nameFlag){
+				alert("注册成功，跳转到登录页面");
+				name=$("#name").val();
+				Email=$("#exampleInputEmail1").val();
+				Password=$("#exampleInputPassword1").val();
+				$.post("userRegister.do",{userName:name,userEmail:Email,userPassword:Password},function(result){
+				})
+			}else{
+				alert("请完善信息")
+			}
+		})
+		$("#login").click(function(){
+			location.href="login.do"
+		})
+		
+	</script>
+</html>

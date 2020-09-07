@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript" src="DES-INF/js/jquery.js"></script>
+		<link rel="stylesheet" type="text/css" href="DES-INF/css/bootstrap.css"/>
+		<script type="text/javascript" src="DES-INF/js/bootstrap.js"></script>
+		<style type="text/css">
+			.container{
+				margin-top: 200px;
+				width: 500px;
+			}
+			
+			button{
+				width: 49.5%;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="container">
+			<form>
+			  <div class="form-group">
+			    <label for="exampleInputEmail1">邮箱</label>
+			    <input required="required" type="email" class="form-control" id="exampleInputEmail1" placeholder="Email">
+			  	<span id="spanEmail"></span>
+			  </div>
+			  <div class="form-group">
+			    <label for="exampleInputPassword1">密码</label>
+			    <input required="required" type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+			  	<span id="spanPassword"></span>
+			  </div>
+			  
+			<button id="login" type="button" class="btn btn-primary btn-lg">登录</button>
+ 			<button id="register" type="button" class="btn btn-default btn-lg">去注册</button>
+			</form>
+		</div>
+		
+	</body>
+	<script type="text/javascript">
+		$("#register").click(
+			function(){
+				location.href="register.do"
+			}
+		);
+		
+		var emailFlag = "" ;
+		$("#exampleInputEmail1").mouseout(function(){
+			if($("#exampleInputEmail1").val() == ""){
+				$("#spanEmail").html("请输入您的邮箱账号")
+				$("#spanEmail").css("color","red")
+				emailFlag = false ;
+			}else{
+				$("#spanEmail").html("")
+				emailFlag = true ;
+			}
+		})
+		
+		
+		var passwordFlag = "" ;
+		$("#exampleInputPassword1").mouseout(function(){
+			if($("#exampleInputPassword1").val() == ""){
+				$("#spanPassword").html("请输入您的密码")
+				$("#spanPassword").css("color","red")
+				passwordFlag = false ;
+			}else{
+				$("#spanPassword").html("")
+				passwordFlag = true ;
+			}
+		})
+		
+		
+		$("#login").click(function(){
+			console.log(passwordFlag);
+			console.log(emailFlag);
+			if(emailFlag && passwordFlag){
+				email =  $("#exampleInputEmail1").val();
+				password = $("#exampleInputPassword1").val();
+				$.post("userlogin.do",{userEmail:email,userPassword:password},function(data){
+					if(data.toString() == "ok"){
+						alert("登录成功")
+						location.href="mainPage.do"
+					}else{
+						alert("登录失败密码错误")
+					}
+				})
+			}
+				
+		})
+		
+		
+		
+	</script>
+</html>

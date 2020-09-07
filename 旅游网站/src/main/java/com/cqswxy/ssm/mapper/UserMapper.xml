@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cqswxy.ssm.mapper.UserMapper">
+
+	<select id="selectByName" resultType="Integer">
+		select COUNT(*) from user
+		where user_name = #{userName}
+	</select>
+
+	<insert id="insertAUser">
+		INSERT INTO `user` VALUE
+		(DEFAULT,#{userName},#{userEmail},#{userPassword})
+	</insert>
+
+	<select id="selectUser" resultType="user">
+		SELECT * from `user` WHERE user_email = #{userEmail} AND user_password =
+		#{userPassword}
+	</select>
+	
+	<insert id="insertTicket">
+		INSERT INTO airticketbooking VALUE
+		(default,#{uid},#{type},#{startingCity},#{arriveCity},#{startTime},#{arriveTime})
+	</insert>
+
+	<insert id="insertPreTicket">
+		INSERT INTO reserveticket VALUE (DEFAULT,#{uid},#{line},#{date},#{price},#{flight})
+	</insert>
+
+	<insert id="insertSpecialPurchase">
+		INSERT INTO specialpurchase VALUE (DEFAULT,#{uid},#{line})
+	</insert>
+</mapper>

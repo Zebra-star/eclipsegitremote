@@ -1,0 +1,771 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title></title>
+<script type="text/javascript" src="DES-INF/js/jquery.js"></script>
+<link rel="stylesheet" href="DES-INF/css/bootstrap.css" />
+<script type="text/javascript" src="DES-INF/js/bootstrap.min.js"></script>
+<style>
+.a {
+	text-decoration: none;
+	color: #FFFFFF;
+}
+
+.col-md-1 {
+	height: 70px;
+	line-height: 70px;
+	text-align: center;
+	color: white;
+	font-size: 20px;
+}
+
+.col-md-1:hover {
+	background-color: black;
+}
+
+.second {
+	height: 300px;
+	background-image: url(DES-INF/img/headline.png);
+	background-size: 100%;
+	background-repeat: no-repeat;
+}
+
+.first {
+	background-color: #333333;
+}
+
+.label-first {
+	margin: 70px 140px;
+	font-size: 26px;
+	color: white;
+	text-align: center;
+}
+
+.label-second {
+	color: white;
+	margin-left: 150px;
+}
+
+.col-md-12, h1 {
+	display: block;
+	width: 100%;
+	text-align: center;
+	font-weight: bold;
+}
+
+.modal-footer {
+	background-color: #414141;
+	color: white;
+	text-align: center;
+}
+
+.footers {
+	margin-top: 0px;
+	margin-bottom: 0px;
+	height: 110px;
+	background-color: black;
+	line-height: 100px;
+	color: white;
+	text-align: center;
+	font-size: 20px;
+}
+
+.context {
+	height: 800px;
+}
+
+.middle {
+	width: 80%;
+	margin: 0 auto;
+}
+
+.green:hover {
+	background-color: greenyellow;
+	border: 1px greenyellow solid;
+}
+
+td {
+	padding: 14px;
+	text-align: center;
+}
+
+.orange {
+	background-color: orangered;
+	border: orangered solid;
+}
+
+.orange2 {
+	color: orangered;
+}
+
+#selectWay {
+	width: 60px;
+	height: 30px;
+	text-align: center;
+}
+</style>
+</head>
+
+<body>
+	<div class="container-fluid">
+		<div class="row first">
+			<div class="col-md-5">
+				<img src="DES-INF/img/logo.png" style="padding-left: 100px;" />
+			</div>
+			<div class="col-md-1">
+				<a href="mainPage.do">首页</a>
+			</div>
+			<div class="col-md-1">
+				<a href="TravelInformation.do">陆游资讯</a>
+			</div>
+			<div class="col-md-1">
+				<a href="#">机票订购</a>
+			</div>
+			<div class="col-md-1">
+				<a href="SceneryAppreciation.do">风景欣赏</a>
+			</div>
+			<div class="col-md-1">
+				<a href="#">公司简介</a>
+			</div>
+			<div class="col-md-1">
+				<a href="login.do" id="login">登录</a>
+			</div>
+			<div class="col-md-1">
+				<a href="#" id="register">注册</a>
+			</div>
+		</div>
+		<div class="row second">
+			<form class="form-inline">
+				<div class="form-group">
+					<label class="label-first">旅游资讯</label><br /> <label
+						class="label-second">介绍各种旅游资讯介绍各种旅游资讯</label>
+				</div>
+			</form>
+		</div>
+
+		<div class="row middle">
+			<div class="context">
+				<div class="col-md-8">
+					<div>
+						<span style="font-size: 23px;">机票预定</span>
+					</div>
+					<div>
+						<span style="font-size: 10px;">-----------------------------------------------------------------------------------------------</span>
+					</div>
+
+
+					<div class="dropdown">
+						<span>航程类型</span> <select id="selectWay">
+							<option value="单程">单程</option>
+							<option value="往返">往返</option>
+						</select>
+					</div>
+
+
+					<div>
+						<table>
+							<tr>
+								<td>出发城市 <input name="startCity" id="startCity" type="text"
+									placeholder="城市名" /></td>
+								<td>出发时间 <input name="startTime" id="startTime" type="date"
+									placeholder="时间/日期" /></td>
+								<td rowspan="2"><button id="orderAirTicket" type="button"
+										class="btn btn-default navbar-btn">订票</button></td>
+							</tr>
+							<tr>
+								<td>到达城市 <input name="arriveCity" id="arriveCity"
+									type="text" placeholder="城市名" /></td>
+								<td>返回时间 <input name="arriveTime" id="arriveTime"
+									type="date" placeholder="时间/日期" /></td>
+							</tr>
+						</table>
+					</div>
+					<div>
+						<span style="font-size: 23px;">最新机票</span>
+					</div>
+					<div>
+						<span>---------------------------------------------------------------------</span>
+					</div>
+					<div>
+						热门城市:
+						<button id="beijing" type="button" class="btn btn-default navbar-btn">北京</button>
+						<button id="shanghai" type="button" class="btn btn-default navbar-btn">上海</button>
+						<button id="guangzhou" type="button" class="btn btn-default navbar-btn">广州</button>
+						<button id="shenzheng" type="button" class="btn btn-default navbar-btn">深圳</button>
+						<button id="chongqing" type="button" class="btn btn-default navbar-btn">重庆</button>
+						<button id="chengdu" type="button" class="btn btn-default navbar-btn">成都</button>
+						<button id="hangzhou" type="button" class="btn btn-default navbar-btn">杭州</button>
+						<button id="nanjing" type="button" class="btn btn-default navbar-btn">南京</button>
+					</div>
+					<div>
+						<table border="1">
+							<tr>
+								<td>路线</td>
+								<td>日期</td>
+								<td>价格</td>
+								<td>税费</td>
+								<td>餐食</td>
+								<td>航班</td>
+								<td>预定</td>
+							</tr>
+							<tr>
+								<td><span class="InitializedCity">北京</span>-成都</td>
+								<td>2020-10-15</td>
+								<td class="orange2">￥715</td>
+								<td>￥50</td>
+								<td>有</td>
+								<td>春秋航班</td>
+								<td><button id="reserveOne" class="orange">预定</button></td>
+							</tr>
+							<tr>
+								<td><span class="InitializedCity">北京</span>-上海</td>
+								<td>2020-10-15</td>
+								<td class="orange2">￥345</td>
+								<td>￥50</td>
+								<td>有</td>
+								<td>春秋航班</td>
+								<td><button id="reserveTwo" class="orange">预定</button></td>
+							</tr>
+							<tr>
+								<td><span class="InitializedCity">北京</span>-深圳</td>
+								<td>2020-10-15</td>
+								<td class="orange2">￥545</td>
+								<td>￥50</td>
+								<td>有</td>
+								<td>春秋航班</td>
+								<td><button id="reserveThree" class="orange">预定</button></td>
+							</tr>
+							<tr>
+								<td><span class="InitializedCity">北京</span>-杭州</td>
+								<td>2020-10-15</td>
+								<td class="orange2">￥445</td>
+								<td>￥50</td>
+								<td>有</td>
+								<td>西部航班</td>
+								<td><button id="reserveFour" class="orange">预定</button></td>
+							</tr>
+							<tr>
+								<td><span class="InitializedCity">北京</span>-广州</td>
+								<td>2020-10-15</td>
+								<td class="orange2">￥345</td>
+								<td>￥50</td>
+								<td>有</td>
+								<td>首都航班</td>
+								<td><button id="reserveFive" class="orange">预定</button></td>
+							</tr>
+							<tr>
+								<td><span class="InitializedCity">北京</span>-重庆</td>
+								<td>2020-10-15</td>
+								<td class="orange2">￥145</td>
+								<td>￥50</td>
+								<td>有</td>
+								<td>东方航班</td>
+								<td><button id="reserveSix" class="orange">预定</button></td>
+							</tr>
+							<tr>
+								<td><span class="InitializedCity">北京</span>-昆明</td>
+								<td>2020-10-15</td>
+								<td class="orange2">￥65</td>
+								<td>￥50</td>
+								<td>有</td>
+								<td>厦门航班</td>
+								<td><button id="reserveSeven" class="orange">预定</button></td>
+							</tr>
+							<tr>
+								<td><span class="InitializedCity">北京</span>-厦门</td>
+								<td>2020-10-15</td>
+								<td class="orange2">￥245</td>
+								<td>￥50</td>
+								<td>有</td>
+								<td>深圳航班</td>
+								<td><button id="reserveEight" class="orange">预定</button></td>
+							</tr>
+							<tr>
+								<td><span class="InitializedCity">北京</span>-长沙</td>
+								<td>2020-10-15</td>
+								<td class="orange2">￥345</td>
+								<td>￥50</td>
+								<td>有</td>
+								<td>南方航班</td>
+								<td><button id="reserveNine" class="orange">预定</button></td>
+							</tr>
+							<tr>
+								<td colspan="7"><button>加载更多航班.</button></td>
+							</tr>
+						</table>
+					</div>
+				</div>
+
+				<div class="col-md-4">
+					<div>
+						<table border="1">
+							<tr>
+								<td colspan="3">景点推荐</td>
+							</tr>
+							<tr>
+								<td>曼谷(12)</td>
+								<td>东京(5)</td>
+								<td>西双版纳(8)</td>
+							</tr>
+							<tr>
+								<td>曼谷(12)</td>
+								<td>东京(5)</td>
+								<td>西双版纳(8)</td>
+							</tr>
+							<tr>
+								<td>曼谷(12)</td>
+								<td>东京(5)</td>
+								<td>西双版纳(8)</td>
+							</tr>
+							<tr>
+								<td>曼谷(12)</td>
+								<td>东京(5)</td>
+								<td>西双版纳(8)</td>
+							</tr>
+							<tr>
+								<td>曼谷(12)</td>
+								<td>东京(5)</td>
+								<td>西双版纳(8)</td>
+							</tr>
+							<tr>
+								<td>曼谷(12)</td>
+								<td>东京(5)</td>
+								<td>西双版纳(8)</td>
+							</tr>
+						</table>
+					</div>
+					<div>
+						<table>
+							<tr>
+								<td colspan="2">热门旅游</td>
+							</tr>
+							<tr>
+								<td><img src="DES-INF/img/hot1.jpg" /></td>
+								<td><img src="DES-INF/img/hot2.jpg" /></td>
+							</tr>
+							<tr>
+								<td>曼谷-芭提雅</td>
+								<td>马尔代夫双鱼6日游</td>
+							</tr>
+							<tr>
+								<td><img src="DES-INF/img/hot3.jpg" /></td>
+								<td><img src="DES-INF/img/hot4.jpg" /></td>
+							</tr>
+							<tr>
+								<td>曼谷-芭提雅</td>
+								<td>马尔代夫双鱼6日游</td>
+							</tr>
+							<tr>
+								<td><img src="DES-INF/img/hot5.jpg" /></td>
+								<td><img src="DES-INF/img/hot6.jpg" /></td>
+							</tr>
+							<tr>
+								<td>曼谷-芭提雅</td>
+								<td>马尔代夫双鱼6日游</td>
+							</tr>
+							<tr>
+								<td><img src="DES-INF/img/hot7.jpg" /></td>
+								<td><img src="DES-INF/img/hot8.jpg" /></td>
+							</tr>
+							<tr>
+								<td>曼谷-芭提雅</td>
+								<td>马尔代夫双鱼6日游</td>
+							</tr>
+						</table>
+					</div>
+					<div>
+						<table>
+							<tr>
+								<td colspan="2">旅游百宝箱</td>
+							</tr>
+							<tr>
+								<td><img src="DES-INF/img/trea1.png" />天气预报</td>
+								<td><img src="DES-INF/img/trea2.png" />火车票查询</td>
+							</tr>
+							<tr>
+								<td><img src="DES-INF/img/trea1.png" />天气预报</td>
+								<td><img src="DES-INF/img/trea2.png" />火车票查询</td>
+							</tr>
+						</table>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div>
+		<div class="modal-footer">
+			<div class="col-md-4">
+				<h3>合作伙伴</h3>
+				<br />
+				<p>途牛旅游网</p>
+				<br />
+				<p>携程旅游</p>
+				<br />
+				<p>中国青年旅行社</p>
+			</div>
+			<div class="col-md-4">
+				<h3>旅游</h3>
+				<br />
+				<p>旅游合同签订方式？</p>
+				<br />
+				<p>儿童价是基于什么时候定制的？</p>
+				<br />
+				<p>旅游的线路品质怎么界定？</p>
+				<br />
+				<p>单房差是什么？</p>
+				<br />
+				<p>旅游保险有哪些种类？</p>
+			</div>
+			<div class="col-md-4">
+				<h3>联系方式</h3>
+				<br />
+				<p>微博：weibo.com/sunny</p>
+				<br />
+				<p>邮件：MP5560@163.com</p>
+				<br />
+				<p>地址：福建省泉州市</p>
+			</div>
+		</div>
+	</div>
+	<div>
+		<div class="footers">
+			<p>Copyright@YCKU 梦腾王|苏icp备XXXXX号|旅行s社经营许可证：XXXX</p>
+		</div>
+	</div>
+	</div>
+</body>
+
+<script type="text/javascript">
+	$.post("userState.do", {}, function(data) {
+		if (data.toString() == "") {
+
+			$("#login").html("登录")
+			$("#register").html("注册")
+		} else {
+
+			$("#login").html(data.toString())
+			$("#register").html("退出")
+		}
+	})
+
+	type = $("#selectWay").val();
+	$("#orderAirTicket").click(
+			function() {
+				$.post("userState.do", {}, function(data) {
+					if (data.toString() == "") {
+						alert("你还没有登录，请登录");
+						type = $("#selectWay").val();
+					} else if ($("#startCity").val() == ""
+							|| $("#startTime").val() == ""
+							|| $("#arriveCity").val() == ""
+							|| $("#arriveTime").val() == "") {
+						alert("请晚上购票信息");
+					} else {
+						$.post("orderTicket.do", {
+							uid : data.toString(),
+							type : type,
+							startingCity : $("#startCity").val(),
+							arriveCity : $("#arriveCity").val(),
+							startTime : $("#startTime").val(),
+							arriveTime : $("#arriveTime").val()
+						}, function(data) {
+							alert("订票成功");
+						})
+					}
+				})
+			})
+			
+			/* 上海 */
+			$("#shanghai").click(function(){
+				$(".InitializedCity").html("上海")
+			})
+			/* 广州 */
+			$("#guangzhou").click(function(){
+				$(".InitializedCity").html("广州")
+			})
+			/* 深圳 */
+			$("#shenzheng").click(function(){
+				$(".InitializedCity").html("深圳")
+			})
+			/* 重庆 */
+			$("#chongqing").click(function(){
+				$(".InitializedCity").html("重庆")
+			})
+			/* 成都 */
+			$("#chengdu").click(function(){
+				$(".InitializedCity").html("成都")
+			})
+			/* 杭州 */
+			$("#hangzhou").click(function(){
+				$(".InitializedCity").html("杭州")
+			})
+			/* 南京 */
+			$("#nanjing").click(function(){
+				$(".InitializedCity").html("南京")
+			})
+			/* 北京 */
+			$("#beijing").click(function(){
+				$(".InitializedCity").html("北京")
+			})
+			
+			
+			
+			/* 预定机票1第排 */
+			$("#reserveOne").click(function(){
+				$.post("userState.do", {}, function(data) {
+					if (data.toString() != "") {
+						
+						line = $("#reserveOne").parent().siblings().children().html() + "-成都";
+						date = 	$("#reserveOne").parent().prev().prev().prev().prev().prev().html();
+						price = $("#reserveOne").parent().prev().prev().prev().prev().html();
+						flight = $("#reserveOne").parent().prev().html();
+						
+						$.post("reserveTicket.do",{
+							uid:data.toString(),
+							line:line,
+							date:date,
+							price:price,
+							flight:flight
+						},function(data){
+							alert("订购成功")
+						})
+					} else {
+						alert("请登录先")
+					}
+				})
+			})
+			
+			
+			
+			/* 预定机票2第排 */
+			$("#reserveTwo").click(function(){
+				$.post("userState.do", {}, function(data) {
+					if (data.toString() != "") {
+						
+						line = $("#reserveTwo").parent().siblings().children().html() + "-上海";
+						date = 	$("#reserveTwo").parent().prev().prev().prev().prev().prev().html();
+						price = $("#reserveTwo").parent().prev().prev().prev().prev().html();
+						flight = $("#reserveTwo").parent().prev().html();
+						
+						$.post("reserveTicket.do",{
+							uid:data.toString(),
+							line:line,
+							date:date,
+							price:price,
+							flight:flight
+						},function(data){
+							alert("订购成功")
+						})
+					} else {
+						alert("请登录先")
+					}
+				})
+			})
+			
+			
+			
+			/* 预定机票3第排 */
+			$("#reserveThree").click(function(){
+				$.post("userState.do", {}, function(data) {
+					if (data.toString() != "") {
+						
+						line = $("#reserveThree").parent().siblings().children().html() + "-深圳";
+						date = 	$("#reserveThree").parent().prev().prev().prev().prev().prev().html();
+						price = $("#reserveThree").parent().prev().prev().prev().prev().html();
+						flight = $("#reserveThree").parent().prev().html();
+						
+						$.post("reserveTicket.do",{
+							uid:data.toString(),
+							line:line,
+							date:date,
+							price:price,
+							flight:flight
+						},function(data){
+							alert("订购成功")
+						})
+					} else {
+						alert("请登录先")
+					}
+				})
+			})
+			
+			
+			
+			/* 预定机票4第排 */
+			$("#reserveFour").click(function(){
+				$.post("userState.do", {}, function(data) {
+					if (data.toString() != "") {
+						
+						line = $("#reserveFour").parent().siblings().children().html() + "-杭州";
+						date = 	$("#reserveFour").parent().prev().prev().prev().prev().prev().html();
+						price = $("#reserveFour").parent().prev().prev().prev().prev().html();
+						flight = $("#reserveFour").parent().prev().html();
+						
+						$.post("reserveTicket.do",{
+							uid:data.toString(),
+							line:line,
+							date:date,
+							price:price,
+							flight:flight
+						},function(data){
+							alert("订购成功")
+						})
+					} else {
+						alert("请登录先")
+					}
+				})
+			})
+			
+			
+			
+			/* 预定机票5第排 */
+			$("#reserveFive").click(function(){
+				$.post("userState.do", {}, function(data) {
+					if (data.toString() != "") {
+						
+						line = $("#reserveFive").parent().siblings().children().html() + "-广州";
+						date = 	$("#reserveFive").parent().prev().prev().prev().prev().prev().html();
+						price = $("#reserveFive").parent().prev().prev().prev().prev().html();
+						flight = $("#reserveFive").parent().prev().html();
+						
+						$.post("reserveTicket.do",{
+							uid:data.toString(),
+							line:line,
+							date:date,
+							price:price,
+							flight:flight
+						},function(data){
+							alert("订购成功")
+						})
+					} else {
+						alert("请登录先")
+					}
+				})
+			})
+			
+			
+			
+			/* 预定机票6第排 */
+			$("#reserveSix").click(function(){
+				$.post("userState.do", {}, function(data) {
+					if (data.toString() != "") {
+						
+						line = $("#reserveSix").parent().siblings().children().html() + "-重庆";
+						date = 	$("#reserveSix").parent().prev().prev().prev().prev().prev().html();
+						price = $("#reserveSix").parent().prev().prev().prev().prev().html();
+						flight = $("#reserveSix").parent().prev().html();
+						
+						$.post("reserveTicket.do",{
+							uid:data.toString(),
+							line:line,
+							date:date,
+							price:price,
+							flight:flight
+						},function(data){
+							alert("订购成功")
+						})
+					} else {
+						alert("请登录先")
+					}
+				})
+			})
+			
+			
+			
+			/* 预定机票7第排 */
+			$("#reserveSeven").click(function(){
+				$.post("userState.do", {}, function(data) {
+					if (data.toString() != "") {
+						
+						line = $("#reserveSeven").parent().siblings().children().html() + "-昆明";
+						date = 	$("#reserveSeven").parent().prev().prev().prev().prev().prev().html();
+						price = $("#reserveSeven").parent().prev().prev().prev().prev().html();
+						flight = $("#reserveSeven").parent().prev().html();
+						
+						$.post("reserveTicket.do",{
+							uid:data.toString(),
+							line:line,
+							date:date,
+							price:price,
+							flight:flight
+						},function(data){
+							alert("订购成功")
+						})
+					} else {
+						alert("请登录先")
+					}
+				})
+			})
+			
+			
+			
+			
+			/* 预定机票8第排 */
+			$("#reserveEight").click(function(){
+				$.post("userState.do", {}, function(data) {
+					if (data.toString() != "") {
+						
+						line = $("#reserveEight").parent().siblings().children().html() + "-厦门";
+						date = 	$("#reserveEight").parent().prev().prev().prev().prev().prev().html();
+						price = $("#reserveEight").parent().prev().prev().prev().prev().html();
+						flight = $("#reserveEight").parent().prev().html();
+						
+						$.post("reserveTicket.do",{
+							uid:data.toString(),
+							line:line,
+							date:date,
+							price:price,
+							flight:flight
+						},function(data){
+							alert("订购成功")
+						})
+					} else {
+						alert("请登录先")
+					}
+				})
+			})
+			
+			
+			/* 预定机票9第排 */
+			$("#reserveNine").click(function(){
+				$.post("userState.do", {}, function(data) {
+					if (data.toString() != "") {
+						
+						line = $("#reserveNine").parent().siblings().children().html() + "-长沙";
+						date = 	$("#reserveNine").parent().prev().prev().prev().prev().prev().html();
+						price = $("#reserveNine").parent().prev().prev().prev().prev().html();
+						flight = $("#reserveNine").parent().prev().html();
+						
+						$.post("reserveTicket.do",{
+							uid:data.toString(),
+							line:line,
+							date:date,
+							price:price,
+							flight:flight
+						},function(data){
+							alert("订购成功")
+						})
+					} else {
+						alert("请登录先")
+					}
+				})
+			})
+			
+			//退出功能
+		$("#register").click(function(){
+			if($("#register").html() == "退出"){
+				$.post("destorySession.do",{},function(data){
+					alert("退出成功")
+					location.href="AirTicketBooking.do";
+				})
+			}else{
+				location.href="register.do";
+			}
+		})
+			
+</script>
+</html>

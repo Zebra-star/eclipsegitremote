@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title></title>
+		<script type="text/javascript" src="DES-INF/js/jquery.js"></script>
+		<script type="text/javascript" src="DES-INF/js/bootstrap.min.js"></script>
+		<link rel="stylesheet" href="DES-INF/css/bootstrap.css"/>
+		<style>
+			.a{
+				text-decoration: none;
+				color: #FFFFFF;
+			}
+			.col-md-1{
+				height: 70px;
+				line-height: 70px;
+				text-align: center;
+				color: white;
+				font-size: 20px;
+			}
+			.col-md-1:hover{
+				background-color: black;
+			}
+			.second{
+				width: 102%;
+				height: 500px;
+				background-image: url(DES-INF/img/search.jpg);
+				background-size: 100%;
+				background-repeat: no-repeat;
+			}
+			.first{
+				background-color: #333333;
+			}
+			.form-inline{
+				line-height: 500px;
+				text-align: center;
+			}
+			.form-inline,input{
+				opacity: 0.9;
+				border-radius: 20px;
+			}
+			.col-md-12,h1{
+				display: block;
+				width: 100%;
+				text-align: center;
+				font-weight: bold;
+			}
+			.context,.col-md-3{
+				height: 280px;
+				margin-left: 90px;
+				border: 1px ghostwhite solid;
+				margin-bottom: 35px;
+				background-size: 100%;
+				background-repeat: no-repeat;
+			}
+			.context{
+				width: 90%;
+				height: 300px;
+				margin: 0 auto;
+				background-color: white;
+			}
+			.modal-footer{
+				background-color: #414141;
+				color: white;
+				text-align: center;
+			}
+			.footers{
+				margin-top: 0px;
+				margin-bottom: 0px;
+				height: 110px;
+				background-color: black;
+				line-height: 100px;
+				color: white;
+				text-align: center;
+				width: 100%;
+				font-size: 20px;
+			}
+			.green{
+				width: 70px;
+				height: 25px;
+				line-height: 25PX;
+				margin-left: -15PX;
+				text-align: center;
+				color: white;
+				background-color: green;
+				border-radius: 15PX;
+			}
+			.green2{
+				margin-top:180px ;
+			}
+			.span-2{
+				padding-left: 120px;
+			}
+			.span-1{
+				color: red;
+				font-size: 20px;
+				font-weight: bold;
+				padding-left: 10px;
+			}
+			@media (max-device-width: 768px) {
+			  .container {
+			    width: 750px;
+			  }
+			  .first,.col-md-5{
+			  	display: none;
+			  }
+			}
+
+		</style>
+	</head>
+
+	<body>
+		<div class="container-fluid">
+			<div class="row first">
+				<div class="col-md-5">
+					<img src="DES-INF/img/logo.png" style="padding-left: 100px;"/>
+				</div>
+				<div class="col-md-1">
+					<a href="#">首页</a>
+				</div>
+				<div class="col-md-1">
+					<a href="TravelInformation.do">陆游资讯</a>
+				</div>
+				<div class="col-md-1">
+					<a href="AirTicketBooking.do">机票订购</a>
+				</div>
+				<div class="col-md-1">
+					<a href="SceneryAppreciation.do">风景欣赏</a>
+				</div>
+				<div class="col-md-1">
+					<a href="#">公司简介</a>
+				</div>
+				<div class="col-md-1">
+					<a href="login.do" id="login">登录</a>
+				</div>
+				<div class="col-md-1">
+					<a href="register.do" id="register">注册</a>
+				</div>
+			</div>
+			<div class="row second">
+				<form class="form-inline">
+				  <div class="form-group">
+				    <label class="sr-only" for="exampleInputEmail3">Email address</label>
+				    <input type="email" class="form-control" id="exampleInputEmail3" placeholder="请输入文字">
+				  </div>
+				  <button type="submit" class="btn btn-default">搜索</button>
+				</form>
+			</div>
+			<div class="row">
+				<div class="col-md-12">
+					<h1>热门旅游</h1>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-12">
+					<h5>国内旅游，国外旅游，自助旅游，自驾旅游，邮轮签证，主题旅游等各种热门旅游推荐</h5>
+				</div>
+			</div>
+			<div class="row">
+				<div class="context">
+				
+					<div class="col-md-3" style="background-image: url(DES-INF/img/tour1.jpg);">
+						<div class="green">
+							国内短线
+						</div>
+						<div class="green2">
+							<span>
+							曼谷-芭提雅6日游包团特惠，超丰富景点，升级1晚过五，无自费，更赠送600元/成人自费卷
+							</span>
+						</div>
+						<div>
+							<span class="span-1">￥8888</span>
+							<span class="span-2">满意度100%</span>
+						</div>
+					</div>
+					
+					
+					
+					<div class="col-md-3" style="background-image: url(DES-INF/img/tour2.jpg);">
+						<div class="green">
+							国内短线
+						</div>
+						<div class="green2">
+							<span>
+							曼谷-芭提雅6日游包团特惠，超丰富景点，升级1晚过五，无自费，更赠送600元/成人自费卷
+							</span>
+						</div>
+						<div>
+							<span class="span-1">￥8888</span>
+							<span class="span-2">满意度100%</span>
+						</div>
+					</div>
+					
+					<div class="col-md-3" style="background-image: url(DES-INF/img/tour3.jpg);">
+						<div class="green">
+							国内短线
+						</div>
+						<div class="green2">
+							<span>
+							曼谷-芭提雅6日游包团特惠，超丰富景点，升级1晚过五，无自费，更赠送600元/成人自费卷
+							</span>
+						</div>
+						<div>
+							<span class="span-1">￥8888</span>
+							<span class="span-2">满意度100%</span>
+						</div>
+					</div>
+					
+				</div>
+			</div>
+			<div class="row">
+				<div class="context">
+					
+					<div class="col-md-3" style="background-image: url(DES-INF/img/tour4.jpg);">
+						<div class="green">
+							国内短线
+						</div>
+						<div class="green2">
+							<span>
+							曼谷-芭提雅6日游包团特惠，超丰富景点，升级1晚过五，无自费，更赠送600元/成人自费卷
+							</span>
+						</div>
+						<div>
+							<span class="span-1">￥8888</span>
+							<span class="span-2">满意度100%</span>
+						</div>
+					</div>
+					
+					<div class="col-md-3" style="background-image: url(DES-INF/img/tour5.jpg);">
+						<div class="green">
+							国内短线
+						</div>
+						<div class="green2">
+							<span>
+							曼谷-芭提雅6日游包团特惠，超丰富景点，升级1晚过五，无自费，更赠送600元/成人自费卷
+							</span>
+						</div>
+						<div>
+							<span class="span-1">￥8888</span>
+							<span class="span-2">满意度100%</span>
+						</div>
+					</div>
+					
+					<div class="col-md-3" style="background-image: url(DES-INF/img/tour6.jpg);">
+						<div class="green">
+							国内短线
+						</div>
+						<div class="green2">
+							<span>
+							曼谷-芭提雅6日游包团特惠，超丰富景点，升级1晚过五，无自费，更赠送600元/成人自费卷
+							</span>
+						</div>
+						<div>
+							<span class="span-1">￥8888</span>
+							<span class="span-2">满意度100%</span>
+						</div>
+					</div> 	
+				</div>
+			</div>
+			<div class="row">
+				<div class="context">
+					
+					<div class="col-md-3" style="background-image: url(DES-INF/img/tour7.jpg);">
+						<div class="green">
+							国内短线
+						</div>
+						<div class="green2">
+							<span>
+							曼谷-芭提雅6日游包团特惠，超丰富景点，升级1晚过五，无自费，更赠送600元/成人自费卷
+							</span>
+						</div>
+						<div>
+							<span class="span-1">￥8888</span>
+							<span class="span-2">满意度100%</span>
+						</div>
+					</div>
+					
+					<div class="col-md-3" style="background-image: url(DES-INF/img/tour8.jpg);">
+						<div class="green">
+							国内短线
+						</div>
+						<div class="green2">
+							<span>
+							曼谷-芭提雅6日游包团特惠，超丰富景点，升级1晚过五，无自费，更赠送600元/成人自费卷
+							</span>
+						</div>
+						<div>
+							<span class="span-1">￥8888</span>
+							<span class="span-2">满意度100%</span>
+						</div>
+					</div>
+					
+					<div class="col-md-3" style="background-image: url(DES-INF/img/tour9.jpg);">
+						<div class="green">
+							国内短线
+						</div>
+						<div class="green2">
+							<span>
+							曼谷-芭提雅6日游包团特惠，超丰富景点，升级1晚过五，无自费，更赠送600元/成人自费卷
+							</span>
+						</div>
+						<div>
+							<span class="span-1">￥8888</span>
+							<span class="span-2">满意度100%</span>
+						</div>
+					</div>
+				</div>
+			</div>
+			
+			<div class="row">
+				<div class="modal-footer">
+					<div class="col-md-4">
+						<h3>合作伙伴</h3><br />
+						<p>途牛旅游网</p><br />
+						<p>携程旅游</p><br />
+						<p>中国青年旅行社</p>
+					</div>
+					<div class="col-md-4">
+						<h3>旅游</h3><br />
+						<p>旅游合同签订方式？</p><br />
+						<p>儿童价是基于什么时候定制的？</p><br />
+						<p>旅游的线路品质怎么界定？</p><br />
+						<p>单房差是什么？</p><br />
+						<p>旅游保险有哪些种类？</p>
+					</div>
+					<div class="col-md-4">
+						<h3>联系方式</h3><br />
+						<p>微博：weibo.com/sunny</p><br />
+						<p>邮件：MP5560@163.com</p><br />
+						<p>地址：福建省泉州市</p>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="footers">
+					<p>Copyright@YCKU 梦腾王|苏icp备XXXXX号|旅行s社经营许可证：XXXX</p>
+				</div>
+			</div>
+		</div>
+	</body>
+
+	<script type="text/javascript">
+	
+		
+		
+		$.post("userState.do",{},function(data){
+			if(data.toString() == ""){
+				
+				$("#login").html("登录")
+				$("#register").html("注册")
+				
+			}else{
+				
+				$("#login").html(data.toString())
+				$("#register").html("退出")
+				
+			}
+			
+		})
+		//退出功能
+		$("#register").click(function(){
+			if($("#register").html() == "退出"){
+				$.post("destorySession.do",{},function(data){
+					alert("退出成功")
+					location.href="mainPage.do";
+				})
+			}else{
+				location.href="register.do";
+			}
+		})
+		
+	</script>
+	
+</html>
