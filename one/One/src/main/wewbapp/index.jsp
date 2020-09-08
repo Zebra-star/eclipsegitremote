@@ -4,7 +4,7 @@
 <html>
 	<head>
 		<meta charset="utf-8" />
-		<title></title>
+		<title>提交</title>
 	</head>
 	<body>
 		<script type="text/javascript">
