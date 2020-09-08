@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.cqswxy.ssm.mapper.UserMapper">
+
+	<select id="selectLogin" resultType="user">
+		SELECT * FROM t_user
+		<where>
+			<if test="userAccess != null and userAccess != ''">
+				AND user_access = #{userAccess}
+			</if>
+			<if test="userPasswd != null and userPasswd != ''">
+				AND user_passwd = #{userPasswd}
+			</if>
+		</where>
+	</select>
+	
+	<insert id="Register">
+		INSERT INTO t_user VALUES(DEFAULT,#{userAccess},#{userPasswd},#{userRealname},#{userFlag})
+	</insert>
+
+</mapper>
