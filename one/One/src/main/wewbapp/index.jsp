@@ -6,7 +6,7 @@
 		<meta charset="utf-8" />
 		<title></title>
 	</head>
-	<body>
+	<body>//测试代码
 		<script type="text/javascript">
 			location.href = "loginPage.do";
 		</script>
